@@ -54,9 +54,9 @@ No Packages marked for removal
 1. 安装所需的软件包。`yum-utils`提供了`yum-config-manager` 效用，并`device-mapper-persistent-data`和`lvm2`由需要 `devicemapper`存储驱动程序。
 
    ```shell
-   [root@izbp1ikb8hczg6u9pf0mxvz ~]# sudo yum install -y yum-utils \
-   >   device-mapper-persistent-data \
-   >   lvm2
+   sudo yum install -y yum-utils \
+     device-mapper-persistent-data \
+     lvm2
    ```
 
    最后出现complete即成功。
@@ -64,14 +64,9 @@ No Packages marked for removal
 2. 使用以下命令来设置**稳定的**存储库。
 
    ```shell
-   [root@izbp1ikb8hczg6u9pf0mxvz ~]# sudo yum-config-manager \
-   >     --add-repo \
-   >     https://download.docker.com/linux/centos/docker-ce.repo
-   //回车
-   Loaded plugins: fastestmirror
-   adding repo from: https://download.docker.com/linux/centos/docker-ce.repo
-   grabbing file https://download.docker.com/linux/centos/docker-ce.repo to /etc/yum.repos.d/docker-ce.repo
-   repo saved to /etc/yum.repos.d/docker-ce.repo
+   $ sudo yum-config-manager \
+       --add-repo \
+       https://download.docker.com/linux/centos/docker-ce.repo
    ```
 
 #### 安装DOCKER ENGINE-社区
@@ -166,10 +161,10 @@ Server: Docker Engine - Community
 [root@izbp1ikb8hczg6u9pf0mxvz docker]# ls
 key.json
 [root@izbp1ikb8hczg6u9pf0mxvz docker]# sudo tee /etc/docker/daemon.json <<-'EOF'
-> {
->   "registry-mirrors": ["https://w151o9g2.mirror.aliyuncs.com"]
-> }
-> EOF
+{
+   "registry-mirrors": ["https://w151o9g2.mirror.aliyuncs.com"]
+}
+ EOF
 //回车
 {
   "registry-mirrors": ["https://w151o9g2.mirror.aliyuncs.com"]
